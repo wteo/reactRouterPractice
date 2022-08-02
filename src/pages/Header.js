@@ -1,21 +1,22 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styles from './Header.module.css';
+import { url } from "../App";
 
 function Header() {
     return (
     <header>
         <div className={styles.navLinks}>
-          <NavLink activeClassName={styles.active} className={styles.navTitle} to='./welcome'>
+          <Link className={styles.navTitle} to={`./${url.welcome}`}>
             <p>Welcome</p>
-          </NavLink>
-          <NavLink activeClassName={styles.active} className={styles.navTitle} to='./about'>
+          </Link>
+          <Link className={styles.navTitle} to={`./${url.about}`}>
             <p>About</p>
-          </NavLink>
-          <NavLink activeClassName={styles.active} className={styles.navTitle} to='./contact'>
+          </Link>
+          <Link className={styles.navTitle} to={`./${url.contact}`}>
             <p>Contact</p>
-          </NavLink>
+          </Link>
         </div>
     </header>
     );

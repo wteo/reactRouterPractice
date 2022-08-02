@@ -28,3 +28,7 @@ header {
     color: rgb(79, 79, 255);
     text-decoration: none;
 }
+
+.isActive p {
+    color: rgb(79, 79, 255);
+}

@@ -1,37 +1,38 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from './pages/Header';
 import Welcome from './pages/Welcome';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PageNotFound from './pages/PageNotFound';
-import AboutLinks from './pages/AboutLinks';
+
+import AboutEducation from './pages/about/About_Education';
+import AboutExperiences from './pages/about/About_Experiences';
+import AboutProjects from './pages/about/About_Projects';
+
+export const url = {
+  about: "about",
+  product: "product",
+  welcome: "welcome",
+  contact: "form"
+}
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Switch>
-        <Route path='/' exact>
-          <Redirect to='/welcome' />
+      <Routes>
+        <Route path='/' element={<Navigate replace to='/welcome'/>} />
+        <Route path={`/${url.welcome}`} element={<Welcome />} />
+        <Route path={`/${url.about}/`} element={<About/>}>
+            <Route path='education' element={<AboutEducation />} />
+            <Route path='experience' element={<AboutExperiences />} />
+            <Route path='projects' element={<AboutProjects />} />
         </Route>
-        <Route path='/welcome'>
-          <Welcome />
-        </Route>
-        <Route path='/about/' exact>
-          <About />
-        </Route>
-        <Route path='/about/:id' exact>
-          <AboutLinks />
-        </Route>
-        <Route path='/contact'>
-          <Contact/>
-        </Route>
-        <Route path='*'>
-          <PageNotFound />
-        </Route>
-      </Switch>
+        <Route path={`/${url.contact}`} element={<Contact/>} />
+        <Route path='*' element={<PageNotFound/>} />
+      </Routes>
     </React.Fragment>
   );
 }

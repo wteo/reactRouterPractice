@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Prompt, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Contact.module.css';
 
@@ -7,29 +7,23 @@ import Overlay from "../ui/Overlay";
 
 function Contact() {
 
-    const history = useHistory();
+    const navigation = useNavigate();
 
-    const [isTouched, setIsTouched] = useState(false);
     const [enteredSubject, setEnteredSubject] = useState("");
     const [enteredMessage, setEnteredMessage] = useState("");
 
-    const formFocusHandler = () => {
-        setIsTouched(true);
-    }
 
     const clickHandler = () => {
         console.log({
             subject: enteredSubject,
             message: enteredMessage  
         })
-
-        setIsTouched(false);
         setEnteredSubject('');
         setEnteredMessage('');
     }
 
     const submitHandler = () => {
-        history.push('/welcome');
+        navigation('/');
     }
 
     const subjectHandler = (event) => {
@@ -43,11 +37,7 @@ function Contact() {
     return (
         <Overlay>
             <h1 className={styles.contact}>Contact</h1>
-            <Prompt 
-                when={isTouched} 
-                message={(location) => 'Are you sure you want to leave? All your entered data will be lost!'}
-            />  
-            <form onFocus={formFocusHandler} onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}>
                     <label>Subject</label>
                     <input className={styles.title} type='text' value={enteredSubject} onChange={subjectHandler}/>
                     <br />
