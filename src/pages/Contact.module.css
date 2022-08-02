@@ -1,0 +1,42 @@
+.contact {
+    text-align: left;
+}
+
+label {
+    font-size: 200%;
+    text-align: left;
+}
+
+.title {
+    margin-left: 2.5%;
+    width: 400px;
+}
+
+.messageTitle {
+    padding-top: 10%;
+}
+
+.messageInput {
+    width: 500px;
+    height: 200px;
+    text-align: left;
+    padding: 0px;
+}
+
+form {
+    text-align: left;
+}
+
+button {
+    margin-top: 1%;
+    height: 30px;
+    width: 120px;
+    background-color: var(--mainColor);
+    color: white;
+    border-radius: 30px;
+}
+
+button:hover {
+    box-shadow: 10px 10px 15px rgb(59, 58, 58);
+    transition: box-shadow 0.5s;
+}

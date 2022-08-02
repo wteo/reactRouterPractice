@@ -1,0 +1,30 @@
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: var(--mainColor);
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.navTitle {
+    padding-right: 5%;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.navTitle p {
+    color: white;
+    transition: color 0.3s;
+}
+
+.navTitle p:hover, a.active p {
+    color: rgb(79, 79, 255);
+    text-decoration: none;
+}
